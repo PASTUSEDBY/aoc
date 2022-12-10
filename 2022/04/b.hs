@@ -10,5 +10,5 @@ isInRange xs =
 
 main :: IO ()
 main = do
-  inputs <- mapM (const getLine) [1..1000]
+  inputs <- lines <$> getContents
   print . length . filter isInRange $ inputs
