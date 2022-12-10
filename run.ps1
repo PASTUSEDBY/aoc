@@ -25,8 +25,7 @@ foreach ($name in $names) {
     continue;
   }
 
-  $output = Get-Content $in | & $runners.$type $file
-  $formatted = $output -join "`n"
+  $output = Get-Content $in | & $runners.$type $file | Out-String
   
-  Write-Output "$name.$type = $formatted"
+  Write-Output "$name.$type = $($output.TrimEnd([System.Environment]::NewLine))"
 }
