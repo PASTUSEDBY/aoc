@@ -26,6 +26,7 @@ foreach ($name in $names) {
   }
 
   $output = Get-Content $in | & $runners.$type $file
+  $formatted = $output -join "`n"
   
-  Write-Output "$name.$type = $output"
+  Write-Output "$name.$type = $formatted"
 }
