@@ -34,6 +34,6 @@ process [opp, _, me] =
 
 
 main = do
-  inputs <- mapM (const getLine) [1..2500]
+  inputs <- lines <$> getContents
 
   print . sum . map process $ inputs
